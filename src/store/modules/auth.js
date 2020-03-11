@@ -1,7 +1,7 @@
 import * as types from '@/store/mutation-types'
 import router from '@/router'
 import api from '@/services/api/auth'
-import { buildSuccess, handleError } from '@/utils/utils.js'
+import { buildSuccess, handleError, handleResponse } from '@/utils/utils.js'
 import { addMinutes, format } from 'date-fns'
 
 const MINUTES_TO_CHECK_FOR_TOKEN_REFRESH = 1440
@@ -17,16 +17,16 @@ const actions = {
     return new Promise((resolve, reject) => {
       commit(types.SHOW_LOADING, true)
       api
-        .userLogin(payload)
+        .userLogin({ userId: payload.email, password: payload.password })
         .then(response => {
-          if (response.status === 200) {
+          if (response.status === 200 && response.data.isOk) {
             window.localStorage.setItem(
               'user',
-              JSON.stringify(response.data.user)
+              JSON.stringify(response.data.body.user)
             )
             window.localStorage.setItem(
               'token',
-              JSON.stringify(response.data.token)
+              JSON.stringify(response.data.body.token)
             )
             window.localStorage.setItem(
               'tokenExpiration',
@@ -37,9 +37,9 @@ const actions = {
                 )
               )
             )
-            commit(types.SAVE_USER, response.data.user)
-            commit(types.SAVE_TOKEN, response.data.token)
-            commit(types.EMAIL_VERIFIED, response.data.user.verified)
+            commit(types.SAVE_USER, response.data.body.user)
+            commit(types.SAVE_TOKEN, response.data.body.token)
+            commit(types.EMAIL_VERIFIED, true)
             buildSuccess(
               null,
               commit,
@@ -48,6 +48,8 @@ const actions = {
                 name: 'home'
               })
             )
+          } else {
+            handleResponse(response, commit, reject)
           }
         })
         .catch(error => {

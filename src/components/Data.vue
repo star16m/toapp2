@@ -7,12 +7,5 @@
 </template>
 
 <script>
-export default {
-  metaInfo() {
-    return {
-      title: this.$store.getters.appTitle,
-      titleTemplate: `${this.$t('about.TITLE')} - %s`
-    }
-  }
-}
+export default {}
 </script>

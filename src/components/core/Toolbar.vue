@@ -182,7 +182,7 @@ export default {
   computed: {
     ...mapGetters(['appTitle', 'isTokenSet', 'user']),
     admin() {
-      return this.user !== null ? this.user.role === 'admin' : false
+      return this.user !== null ? this.user.privilege.match(/ROLE_ADMIN/) : false
     },
     adminItems() {
       return [

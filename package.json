@@ -1,6 +1,6 @@
 {
   "name": "vue-skeleton-mvp",
-  "version": "4.1.3",
+  "version": "0.0.1",
   "description": "VueJS Vuetify Vue Router Vuex - Basic Project Skeleton - Starter Web App. Written on JavaScript using async/await.",
   "license": "MIT",
   "repository": {
@@ -13,10 +13,7 @@
     "build": "npm run generate-build-version && vue-cli-service build",
     "format": "prettier --write --config .prettierrc \"**/*.js\"",
     "lint": "vue-cli-service lint --fix",
-    "test:e2e": "vue-cli-service test:e2e --mode e2e",
-    "test:unit": "vue-cli-service test:unit",
-    "remark": "remark . -o",
-    "ci": "vue-cli-service test:e2e --env API_URL=https://api-demo.daniel-avellaneda.com,ENV=ci --headless --config video=false"
+    "remark": "remark . -o"
   },
   "husky": {
     "hooks": {
@@ -43,7 +40,6 @@
   "devDependencies": {
     "@kazupon/vue-i18n-loader": "^0.4.0",
     "@vue/cli-plugin-babel": "^3.9.2",
-    "@vue/cli-plugin-e2e-cypress": "^3.9.0",
     "@vue/cli-plugin-eslint": "^3.9.2",
     "@vue/cli-plugin-unit-mocha": "^3.9.0",
     "@vue/cli-service": "^3.9.3",
@@ -88,7 +84,6 @@
     "frontend",
     "testing",
     "prettier",
-    "cypress",
     "mocha",
     "chai"
   ]

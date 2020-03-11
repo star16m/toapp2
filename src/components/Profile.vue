@@ -219,12 +219,6 @@
 import { mapActions } from 'vuex'
 
 export default {
-  metaInfo() {
-    return {
-      title: this.$store.getters.appTitle,
-      titleTemplate: `${this.$t('myProfile.TITLE')} - %s`
-    }
-  },
   data() {
     return {
       dialog: false,

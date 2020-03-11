@@ -10,13 +10,13 @@
               <v-text-field
                 id="email"
                 name="email"
-                type="email"
+                type="text"
                 :label="$t('login.EMAIL')"
                 v-model="email"
                 :data-vv-as="$t('login.EMAIL')"
                 :error="errors.has('email')"
                 :error-messages="errors.collect('email')"
-                v-validate.disable="'required|email'"
+                v-validate.disable="'required'"
                 autocomplete="off"
               ></v-text-field>
             </v-flex>
@@ -30,7 +30,7 @@
                 :data-vv-as="$t('login.PASSWORD')"
                 :error="errors.has('password')"
                 :error-messages="errors.collect('password')"
-                v-validate.disable="'required|min:5'"
+                v-validate.disable="'required|min:4'"
                 autocomplete="off"
               ></v-text-field>
             </v-flex>
@@ -60,12 +60,6 @@ import router from '@/router'
 import { mapActions } from 'vuex'
 
 export default {
-  metaInfo() {
-    return {
-      title: this.$store.getters.appTitle,
-      titleTemplate: `${this.$t('login.TITLE')} - %s`
-    }
-  },
   data() {
     return {
       email: '',

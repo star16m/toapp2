@@ -5,7 +5,8 @@ import { store } from '@/store'
 
 const localesDateFns = {
   en: require('date-fns/locale/en'),
-  es: require('date-fns/locale/es')
+  es: require('date-fns/locale/es'),
+  ko: require('date-fns/locale/ko')
 }
 
 export const getFormat = (date, formatStr) => {
@@ -86,6 +87,21 @@ export const handleError = (error, commit, reject) => {
     }, 0)
   }
   reject(error)
+}
+export const handleResponse = (response, commit, reject) => {
+  let responseMessage = ''
+  // Resets errors in store
+  commit(types.SHOW_LOADING, false)
+  commit(types.ERROR, response.data.result)
+
+  // Any other error
+  responseMessage = response
+    ? response.result
+    : 'UNKNOWN_RESPONSE'
+  setTimeout(() => {
+    return commit(types.SHOW_ERROR, false)
+  }, 0)
+  // reject()
 }
 
 export const buildSuccess = (

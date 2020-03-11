@@ -4,8 +4,8 @@ import { checkIfTokenNeedsRefresh } from '@/utils/utils.js'
 import { checkForUpdates } from '@/utils/updates.js'
 
 axios.defaults.baseURL = process.env.VUE_APP_API_URL || ''
-axios.defaults.headers.common['Accept-Language'] =
-  JSON.parse(localStorage.getItem('locale')) || 'en'
+axios.defaults.headers.common['Accept-Language'] = JSON.parse(localStorage.getItem('locale')) || 'en'
+axios.defaults.headers.common['Content-Type'] = 'application/json'
 
 axios.interceptors.request.use(
   config => {

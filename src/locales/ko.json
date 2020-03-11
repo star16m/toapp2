@@ -19,7 +19,8 @@
     "EMAIL_ALREADY_EXISTS": "E-mail already exists",
     "ID_MALFORMED": "ID malformed",
     "ERROR_WITH_FILTER": "Error with filter",
-    "CITY_ALREADY_EXISTS": "City already exists"
+    "CITY_ALREADY_EXISTS": "City already exists",
+    "AUTHENTICATE_ERROR": "인증시 오류가 발생하였습니다."
   },
   "common": {
     "DELETE": "Delete",
@@ -42,7 +43,7 @@
   },
   "menuItems": {
     "HOME": "홈",
-    "ABOUT": "About",
+    "ABOUT": "데이터",
     "MY_PROFILE": "프로필",
     "SIGNUP": "가입",
     "LOGIN": "로그인",

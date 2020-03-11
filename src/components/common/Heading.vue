@@ -9,6 +9,12 @@ export default {
   name: 'Heading',
   props: {
     title: String
+  },
+  metaInfo() {
+    return {
+      title: this.$store.getters.appTitle,
+      titleTemplate: `${this.title} - %s`
+    }
   }
 }
 </script>
