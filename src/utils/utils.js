@@ -5,7 +5,6 @@ import { store } from '@/store'
 
 const localesDateFns = {
   en: require('date-fns/locale/en'),
-  es: require('date-fns/locale/es'),
   ko: require('date-fns/locale/ko')
 }
 
@@ -95,9 +94,7 @@ export const handleResponse = (response, commit, reject) => {
   commit(types.ERROR, response.data.result)
 
   // Any other error
-  responseMessage = response
-    ? response.result
-    : 'UNKNOWN_RESPONSE'
+  responseMessage = response ? response.result : 'UNKNOWN_RESPONSE'
   setTimeout(() => {
     return commit(types.SHOW_ERROR, false)
   }, 0)

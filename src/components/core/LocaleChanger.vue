@@ -34,14 +34,6 @@ export default {
           flag: 'gb'
         },
         {
-          lang: 'es',
-          flag: 'es'
-        },
-        {
-          lang: 'cn',
-          flag: 'cn'
-        },
-        {
           lang: 'ko',
           flag: 'kr'
         }

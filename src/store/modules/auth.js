@@ -19,7 +19,7 @@ const actions = {
       api
         .userLogin({ userId: payload.email, password: payload.password })
         .then(response => {
-          if (response.status === 200 && response.data.isOk) {
+          if (response.status === 200 && response.data.result === 'SUCCESS') {
             window.localStorage.setItem(
               'user',
               JSON.stringify(response.data.body.user)

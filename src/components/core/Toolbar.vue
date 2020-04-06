@@ -2,7 +2,7 @@
   <div>
     <v-navigation-drawer v-model="sidebar" app disable-resize-watcher>
       <v-list>
-        <v-list-tile>
+        <v-list-tile class="lighten-2">
           <v-list-tile-content>{{ appTitle }}</v-list-tile-content>
           <v-list-tile-action>
             <v-btn icon @click.stop="sidebar = !sidebar">
@@ -116,7 +116,7 @@
           <v-icon left>mdi-exit-to-app</v-icon>
           {{ $t('menuItems.LOGOUT') }}
         </v-btn>
-        <LocaleChanger />
+        <!-- <LocaleChanger /> -->
       </v-toolbar-items>
     </v-toolbar>
   </div>
@@ -124,7 +124,6 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import LocaleChanger from '@/components/core/LocaleChanger'
 import ResizeText from 'vue-resize-text'
 
 export default {
@@ -168,21 +167,21 @@ export default {
       ]
     }
   },
-  components: {
-    LocaleChanger
-  },
   directives: {
     ResizeText
   },
   data() {
     return {
-      sidebar: false
+      sidebar: false,
+      authentications: true
     }
   },
   computed: {
     ...mapGetters(['appTitle', 'isTokenSet', 'user']),
     admin() {
-      return this.user !== null ? this.user.privilege.match(/ROLE_ADMIN/) : false
+      return this.user !== null
+        ? this.user.privilege.match(/ROLE_ADMIN/)
+        : false
     },
     adminItems() {
       return [

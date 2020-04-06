@@ -19,7 +19,7 @@ const mutations = {
 }
 
 const state = {
-  appTitle: 'ToApp',
+  appTitle: 'YA',
   appVersion: packageJson.version
 }
 

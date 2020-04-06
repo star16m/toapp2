@@ -1,9 +1,7 @@
 <template>
   <v-footer height="60" class="mt-5 justify-center text-xs-center d-block">
     <div class="mt-2">
-      v{{ appVersion }} - {{ $t('footer.MADE_WITH') }}
-      <v-icon small class="red--text mx-0 px-0">mdi-cards-heart</v-icon>
-      &nbsp;{{ $t('footer.BY') }}:
+      {{ appTitle }} - v{{ appVersion }} {{ $t('footer.BY') }}:star16m
     </div>
   </v-footer>
 </template>
@@ -14,6 +12,9 @@ export default {
   computed: {
     appVersion() {
       return this.$store.getters.appVersion
+    },
+    appTitle() {
+      return this.$store.getters.appTitle
     }
   }
 }

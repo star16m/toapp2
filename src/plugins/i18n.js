@@ -16,7 +16,7 @@ const loadLocaleMessages = () => {
   return messages
 }
 
-const availableLocle = ['en', 'es', 'cn', 'ko']
+const availableLocle = ['en', 'ko']
 
 const getLocale = () => {
   const locale = navigator.language.slice(0, 2)
@@ -25,6 +25,6 @@ const getLocale = () => {
 
 export default new VueI18n({
   locale: getLocale(),
-  fallbackLocale: 'en',
+  fallbackLocale: 'ko',
   messages: loadLocaleMessages()
 })
