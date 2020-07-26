@@ -6,5 +6,8 @@ export default {
   },
   refreshToken() {
     return axios.get('/user/token')
+  },
+  userLogout(payload) {
+    return axios.post('/user/logout', payload)
   }
 }
